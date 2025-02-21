@@ -78,8 +78,8 @@ function Component() {
   }
 
   const flattenedModules = modules.pages.flatMap((page) => page.data);
-  const builtinModules = flattenedModules.filter((mod) => mod.builtin);
-  const customModules = flattenedModules.filter((mod) => !mod.builtin);
+  const builtinModules = flattenedModules.filter((mod) => mod.isCore);
+  const customModules = flattenedModules.filter((mod) => !mod.isCore);
 
   const currentDomain = getCurrentDomain(me);
   const maxModulesCount = currentDomain.maxModules;
