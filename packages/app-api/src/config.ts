@@ -49,6 +49,10 @@ interface IHttpConfig extends IBaseConfig {
     prometheusUrl: string;
     pushgatewayUrl: string;
   };
+  ai: {
+    apiKey: string;
+    modelId: string;
+  };
 }
 
 const configSchema = {
@@ -216,6 +220,20 @@ const configSchema = {
       format: String,
       default: 'http://pushgateway:9091',
       env: 'PUSHGATEWAY_URL',
+    },
+  },
+  ai: {
+    apiKey: {
+      doc: 'The API key for the LLM API',
+      format: String,
+      default: '',
+      env: 'TAKARO_AI_API_KEY',
+    },
+    modelId: {
+      doc: 'The model ID for the LLM API',
+      format: String,
+      default: 'google/gemini-2.0-flash-001',
+      env: 'TAKARO_AI_MODEL_ID',
     },
   },
 };
